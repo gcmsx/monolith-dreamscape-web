@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
           <div className="text-center md:text-left">
             <h2 className="text-xl font-bold mb-1">MONOLIT</h2>
-            <p className="text-xs opacity-70">exploring the boundaries of imagination</p>
+            <p className="text-xs opacity-50">lorem ipsum dolor sit amet</p>
           </div>
           
           <div className="flex space-x-8">

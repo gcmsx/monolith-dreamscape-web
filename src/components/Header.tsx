@@ -21,6 +21,8 @@ const Header: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const navigationItems = ['Home', 'Projects', 'About', 'Contact'];
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300 ${
@@ -28,9 +30,8 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="monolit-container flex items-center justify-end md:justify-center">
-        {/* Desktop Navigation with updated order */}
         <nav className="hidden md:flex space-x-8">
-          {['Home', 'Projects', 'About', 'Contact'].map((item) => (
+          {navigationItems.map((item) => (
             <a 
               key={item} 
               href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}
@@ -42,7 +43,6 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
         <button 
           className="md:hidden text-white p-2"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -51,10 +51,9 @@ const Header: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Menu with updated order */}
       {menuOpen && (
         <div className="fixed inset-0 bg-monolit-blue-dark/95 z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
-          {['Home', 'Projects', 'About', 'Contact'].map((item) => (
+          {navigationItems.map((item) => (
             <a 
               key={item} 
               href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}

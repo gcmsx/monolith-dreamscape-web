@@ -12,7 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Instagram, Twitter, Linkedin, Facebook } from 'react-feather';
+import { Instagram, Twitter, Linkedin, Facebook } from 'lucide-react';
 
 const Index = () => {
   const { toast } = useToast();
@@ -42,7 +42,7 @@ const Index = () => {
     {
       title: "Cosmic Effects",
       description: "Dreamlike visual elements from the depths of the universe.",
-      backgroundImage: "https://media.giphy.com/media/xTiIzKsnjiilddXngI/giphy.gif?cid=ecf05e47vr6y6mx3336fcvlnosbegzndl0tc8ovxhf4qpeer&ep=v1_gifs_related&rid=giphy.gif&ct=g",
+      backgroundImage: "https://media.giphy.com/media/xTiIzKsnjiilddXngI/giphy.gif",
     }
   ];
 
@@ -67,7 +67,7 @@ const Index = () => {
   useEffect(() => {
     setTimeout(() => {
       toast({
-        title: "Welcome to MONOLİT",
+        title: "Welcome to MONOLIT",
         description: "Explore the future of AI-driven cinematography",
         duration: 5000,
       });
@@ -84,7 +84,7 @@ const Index = () => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-wider">
             MONOLIT
           </h1>
-          <p className="text-gray-400/70 mb-8">exploring the boundaries of imagination</p>
+          <p className="text-gray-400/70 mb-8">lorem ipsum dolor sit amet</p>
           <div className="mt-12">
             <a 
               href="#about" 
@@ -181,16 +181,16 @@ const Index = () => {
             </div>
             
             <div className="flex justify-center space-x-6 mt-12">
-              <a href="https://instagram.com" className="text-monolit-mist hover:text-monolit-neon-orange transition-colors duration-300">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-monolit-mist hover:text-monolit-neon-orange transition-colors duration-300">
                 <Instagram size={24} />
               </a>
-              <a href="https://twitter.com" className="text-monolit-mist hover:text-monolit-neon-orange transition-colors duration-300">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-monolit-mist hover:text-monolit-neon-orange transition-colors duration-300">
                 <Twitter size={24} />
               </a>
-              <a href="https://linkedin.com" className="text-monolit-mist hover:text-monolit-neon-orange transition-colors duration-300">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-monolit-mist hover:text-monolit-neon-orange transition-colors duration-300">
                 <Linkedin size={24} />
               </a>
-              <a href="https://facebook.com" className="text-monolit-mist hover:text-monolit-neon-orange transition-colors duration-300">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-monolit-mist hover:text-monolit-neon-orange transition-colors duration-300">
                 <Facebook size={24} />
               </a>
             </div>
