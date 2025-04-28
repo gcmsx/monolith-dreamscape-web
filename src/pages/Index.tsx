@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Header from '../components/Header';
 import VideoSection from '../components/VideoSection';
 import ParallaxBackground from '../components/ParallaxBackground';
@@ -17,7 +17,9 @@ import { Instagram, Twitter, Linkedin, Facebook } from 'lucide-react';
 const Index = () => {
   const { toast } = useToast();
   const isMobile = useIsMobile();
-
+  const [api, setApi] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  
   const sections = [
     {
       title: "AI-Generated Films",
@@ -64,6 +66,31 @@ const Index = () => {
     }
   ];
 
+  // Function to advance to the next slide
+  const scrollNext = useCallback(() => {
+    if (api) {
+      api.scrollNext();
+      setActiveIndex((prev) => (prev + 1) % sections.length);
+    }
+  }, [api, sections.length]);
+
+  // Auto-rotate carousel every 2 seconds for mobile view
+  useEffect(() => {
+    let intervalId;
+    
+    if (isMobile && api) {
+      intervalId = setInterval(() => {
+        scrollNext();
+      }, 2000); // 2 seconds
+    }
+    
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [isMobile, api, scrollNext]);
+
   useEffect(() => {
     setTimeout(() => {
       toast({
@@ -98,7 +125,13 @@ const Index = () => {
       
       <section id="projects" className="py-24">
         {isMobile ? (
-          <Carousel className="w-full max-w-xs mx-auto">
+          <Carousel 
+            className="w-full max-w-xs mx-auto"
+            setApi={setApi}
+            opts={{
+              loop: true,
+            }}
+          >
             <CarouselContent>
               {sections.map((section, index) => (
                 <CarouselItem key={index} className="pl-0">
