@@ -1,99 +1,100 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, Home, Layers, Info, Mail } from 'lucide-react';
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  SheetClose
-} from "@/components/ui/sheet";
+import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      // Close mobile menu on scroll
+      if (mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [mobileMenuOpen]); // Add mobileMenuOpen dependency
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Navigation items with icons
+  // Navigation items (text only needed now)
   const navigationItems = [
-    { name: 'Home', icon: <Home size={18} />, href: '#' },
-    { name: 'Projects', icon: <Layers size={18} />, href: '#projects' },
-    { name: 'About', icon: <Info size={18} />, href: '#about' },
-    { name: 'Contact', icon: <Mail size={18} />, href: '#contact' }
+    { name: 'Home', href: '#' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'About', href: '#about' },
+    { name: 'Contact', href: '#contact' }
   ];
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 py-3 transition-all duration-300 ${
-        scrolled ? 'bg-monolit-blue-dark/70 backdrop-blur-md' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300 ${
+        scrolled ? 'bg-monolit-blue-dark/90 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-screen-xl mx-auto px-4 flex items-center justify-center">
-        {/* Desktop Navigation - Icon Based */}
-        <nav className="hidden md:flex space-x-10">
+      <div className="monolit-container flex items-center justify-between md:justify-center relative">
+        {/* Desktop Navigation - Text Based */}
+        <nav className="hidden md:flex space-x-8">
           {navigationItems.map((item) => (
             <a 
               key={item.name} 
               href={item.href}
               onClick={item.name === 'Home' ? scrollToTop : undefined}
-              className="text-white opacity-70 hover:opacity-100 hover:text-monolit-neon-orange transition-all duration-200 flex flex-col items-center"
-              title={item.name}
+              className="text-sm uppercase tracking-wider text-white opacity-90 hover:opacity-100 hover:text-monolit-neon-orange transition-colors"
             >
-              <div className="p-2 rounded-full hover:bg-white/10 transition-colors">
-                {item.icon}
-              </div>
-              <span className="text-[10px] mt-1 uppercase tracking-wider">{item.name}</span>
+              {item.name}
             </a>
           ))}
         </nav>
 
         {/* Mobile Navigation Trigger */}
         <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <button className="text-white p-2 rounded-full hover:bg-white/10 transition-colors">
-                <Menu size={20} />
-              </button>
-            </SheetTrigger>
-            <SheetContent side="left" className="bg-monolit-blue-dark/95 border-l-0 text-white w-[250px] sm:w-[300px]">
-              <SheetHeader className="text-left mb-8">
-                <SheetTitle className="text-2xl font-bold text-monolit-neon-orange">MENU</SheetTitle>
-              </SheetHeader>
-              <nav className="flex flex-col space-y-6">
-                {navigationItems.map((item) => (
-                  <SheetClose asChild key={item.name}>
-                    <a 
-                      href={item.href}
-                      onClick={(e) => {
-                        if (item.name === 'Home') {
-                          e.preventDefault();
-                          scrollToTop();
-                        }
-                      }}
-                      className="text-xl uppercase tracking-wider hover:text-monolit-neon-orange transition-colors flex items-center"
-                    >
-                      <span className="mr-3">{item.icon}</span>
-                      {item.name}
-                    </a>
-                  </SheetClose>
-                ))}
-              </nav>
-            </SheetContent>
-          </Sheet>
+          <button 
+            className="text-white p-2"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+
+        {/* Mobile Navigation Dropdown */}
+        {mobileMenuOpen && (
+          <div className="absolute top-full left-0 right-0 mt-2 bg-monolit-blue-dark/95 backdrop-blur-md md:hidden shadow-lg rounded-b-lg overflow-hidden">
+            <nav className="flex flex-col p-4 space-y-3">
+              {navigationItems.map((item) => (
+                <a 
+                  key={item.name} 
+                  href={item.href}
+                  onClick={(e) => {
+                    if (item.name === 'Home') {
+                      e.preventDefault();
+                      scrollToTop();
+                    }
+                    closeMobileMenu(); // Close menu on click
+                  }}
+                  className="text-lg uppercase tracking-wider text-white hover:text-monolit-neon-orange transition-colors text-center py-2"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
