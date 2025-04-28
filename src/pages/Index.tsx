@@ -126,7 +126,7 @@ const Index = () => {
       <section id="projects" className="py-24">
         {isMobile ? (
           <Carousel 
-            className="w-full max-w-xs mx-auto"
+            className="w-full"
             setApi={setApi}
             opts={{
               loop: true,
@@ -144,8 +144,7 @@ const Index = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+
           </Carousel>
         ) : (
           <div className="flex">
