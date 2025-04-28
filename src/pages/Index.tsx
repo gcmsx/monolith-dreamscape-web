@@ -23,27 +23,28 @@ const Index = () => {
     {
       title: "AI-Generated Films",
       description: "Cutting-edge artificial intelligence creating cinematic masterpieces.",
-      backgroundImage: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtY2JyMnBoc3k4NnB1OHgybTF1bGhiam8ybjU1Z2tzMWVvNHFobiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btXJQm5DD8ApubC/giphy.gif",
+      backgroundImage: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnRncHd4bDJqMHVyb2lkNHI3NHBob3MzcGJoc3JwOXM2ZTlqMGMzdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jd6TVgsph6w7e/giphy.gif",
+   
     },
     {
       title: "Space Landscapes",
       description: "Mystical cosmic environments beyond human imagination.",
-      backgroundImage: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHdiY3R2cWI5M2dtcXBxZDAwbmx1ZHB1bGY4NnJxdWN0ZXd1NXJ6ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT8qBvOmIEWXxVPdxS/giphy.gif",
+      backgroundImage: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzZhb2V0eWhoazVsdjZ1Ym80Nm91eG14M2tuanl5MndxYXRhdXBzMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTiTntOKF6uzXbMX28/giphy.gif",
     },
     {
       title: "Futuristic Advertising",
       description: "Revolutionary visual concepts for next-generation brands.",
-      backgroundImage: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWdyeWJkbzFrc2k0ZXRyYW96eXQya3J5YnB6dXpyNGFvNzBzMmp6dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btNa0RUYa5E7iiQ/giphy.gif",
+      backgroundImage: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExODFzdnp4M3djM2N6ajN5d3NscjAycG82MGkyNmN5M204aXE0eXk2bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HHS2CQGdvCx3y/giphy.gif",
     },
     {
       title: "Cyberpunk Worlds",
       description: "High-tech dystopian environments with striking neon aesthetics.",
-      backgroundImage: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHF1NXV2ZGx6Y2JlOWE3ZXRrY2h3dW42cWc2OWVyYXkwZDl5NXB6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btSHUTdwRVRBy0w/giphy.gif",
+      backgroundImage: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTBkdm8zMDR1bjk5eWd3bzljc25tNmI3eWRjOTJtdjg1amlobmFxbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/e7FOBuKCDtwWI/giphy.gif",
     },
     {
       title: "Cosmic Effects",
       description: "Dreamlike visual elements from the depths of the universe.",
-      backgroundImage: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExem41enIyaGQ4ZmV6YmFyMHZwbDY5ZWQ1amRiMnlsZHBnbXZoZjBkayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0IyeL8r9UhJI5LcA/giphy.gif",
+      backgroundImage: "https://media.giphy.com/media/xTiIzKsnjiilddXngI/giphy.gif?cid=ecf05e47vr6y6mx3336fcvlnosbegzndl0tc8ovxhf4qpeer&ep=v1_gifs_related&rid=giphy.gif&ct=g",
     },
     {
       title: "Artistic Vision",
