@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import VideoSection from '../components/VideoSection';
 import ParallaxBackground from '../components/ParallaxBackground';
@@ -13,23 +13,10 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Instagram, Twitter, Linkedin, Facebook } from 'lucide-react';
-import Autoplay from 'embla-carousel-autoplay';
 
 const Index = () => {
   const { toast } = useToast();
   const isMobile = useIsMobile();
-  const [api, setApi] = useState(null);
-  
-  // Create autoplay plugin with 2 second interval
-  const autoplayPlugin = React.useMemo(
-    () => 
-      Autoplay({
-        delay: 2000, // 2 seconds
-        stopOnInteraction: true,
-        stopOnMouseEnter: true,
-      }),
-    []
-  );
 
   const sections = [
     {
@@ -111,14 +98,7 @@ const Index = () => {
       
       <section id="projects" className="py-24">
         {isMobile ? (
-          <Carousel 
-            className="w-full max-w-xs mx-auto"
-            plugins={[autoplayPlugin]}
-            setApi={setApi}
-            opts={{
-              loop: true,
-            }}
-          >
+          <Carousel className="w-full max-w-xs mx-auto">
             <CarouselContent>
               {sections.map((section, index) => (
                 <CarouselItem key={index} className="pl-0">
