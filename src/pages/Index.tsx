@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import VideoSection from '../components/VideoSection';
@@ -51,6 +52,25 @@ const Index = () => {
     }
   ];
 
+  // Sample projects data
+  const projects = [
+    {
+      title: "Project Nebula",
+      description: "An AI-driven space opera series.",
+      image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb"
+    },
+    {
+      title: "Neon Dreams",
+      description: "Revolutionary AR advertising campaign.",
+      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22"
+    },
+    {
+      title: "Digital Horizons",
+      description: "Virtual reality storytelling experience.",
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5"
+    }
+  ];
+
   useEffect(() => {
     setTimeout(() => {
       toast({
@@ -72,9 +92,6 @@ const Index = () => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-wider">
             MONOLİT
           </h1>
-          <p className="text-lg md:text-xl max-w-md mx-auto text-monolit-mist">
-            AI-driven film and advertising agency
-          </p>
           <div className="mt-12">
             <a 
               href="#about" 
@@ -106,7 +123,7 @@ const Index = () => {
             <CarouselNext />
           </Carousel>
         ) : (
-          <div className="flex flex-wrap">
+          <div className="flex">
             {sections.map((section, index) => (
               <VideoSection
                 key={index}
@@ -118,6 +135,34 @@ const Index = () => {
             ))}
           </div>
         )}
+      </section>
+      
+      {/* Projects Section */}
+      <section id="our-projects" className="py-24 px-4">
+        <div className="monolit-container">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gradient">Featured Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <div 
+                key={index}
+                className="relative group overflow-hidden rounded-lg aspect-video hover:scale-[1.02] transition-all duration-500"
+              >
+                <div 
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${project.image})` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-monolit-blue-dark/90"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
+                  <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    {project.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
       
       {/* About Section */}

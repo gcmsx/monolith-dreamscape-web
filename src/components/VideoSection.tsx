@@ -20,7 +20,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({
   
   return (
     <div 
-      className={`relative ${isMobile ? 'h-[60vh] w-full' : 'h-screen w-full sm:w-1/2 lg:w-1/3'} group overflow-hidden`}
+      className={`relative ${isMobile ? 'h-[60vh] w-full' : 'h-screen w-[16.666%]'} group overflow-hidden`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
