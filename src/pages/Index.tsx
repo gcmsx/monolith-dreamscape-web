@@ -24,7 +24,7 @@ const Index = () => {
     {
       title: "AI-Generated Films",
       description: "Cutting-edge artificial intelligence creating cinematic masterpieces.",
-      backgroundImage: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnRncHd4bDJqMHVyb2lkNHI3NHBob3MzcGJoc3JwOXM2ZTlqMGMzdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jd6TVgsph6w7e/giphy.gif",
+      backgroundImage: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmU2YnBlY2RzaXBjbnpnaW14NDA4ejZwbDJ2aGtwdmIyZnppazYxNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ttxj1ulueAVdCgTEU0/giphy.gif",
     },
     {
       title: "Space Landscapes",
