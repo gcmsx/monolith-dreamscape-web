@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import VideoSection from '../components/VideoSection';
@@ -13,18 +12,17 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Instagram, Twitter, Linkedin, Facebook } from 'react-feather';
 
 const Index = () => {
   const { toast } = useToast();
   const isMobile = useIsMobile();
 
-  // Sample data for the video sections with animated GIFs
   const sections = [
     {
       title: "AI-Generated Films",
       description: "Cutting-edge artificial intelligence creating cinematic masterpieces.",
       backgroundImage: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnRncHd4bDJqMHVyb2lkNHI3NHBob3MzcGJoc3JwOXM2ZTlqMGMzdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jd6TVgsph6w7e/giphy.gif",
-   
     },
     {
       title: "Space Landscapes",
@@ -45,15 +43,9 @@ const Index = () => {
       title: "Cosmic Effects",
       description: "Dreamlike visual elements from the depths of the universe.",
       backgroundImage: "https://media.giphy.com/media/xTiIzKsnjiilddXngI/giphy.gif?cid=ecf05e47vr6y6mx3336fcvlnosbegzndl0tc8ovxhf4qpeer&ep=v1_gifs_related&rid=giphy.gif&ct=g",
-    },
-    {
-      title: "Artistic Vision",
-      description: "Where technology meets artistic expression in perfect harmony.",
-      backgroundImage: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWJ6ZjR1MnN0b2dlYW9zYnlnZWQxbzQzam5mMDAxamw2d3Y3MnA4dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26DN0U3SqKDG2fTFe/giphy.gif",
     }
   ];
 
-  // Sample projects data
   const projects = [
     {
       title: "Project Nebula",
@@ -87,12 +79,12 @@ const Index = () => {
       <ParallaxBackground />
       <Header />
       
-      {/* Hero Section */}
       <section className="h-screen flex items-center justify-center">
         <div className="text-center px-4 animate-fade-in">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-wider">
-            MONOLİT
+            MONOLIT
           </h1>
+          <p className="text-gray-400/70 mb-8">exploring the boundaries of imagination</p>
           <div className="mt-12">
             <a 
               href="#about" 
@@ -104,7 +96,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Video Sections */}
       <section id="projects" className="py-24">
         {isMobile ? (
           <Carousel className="w-full max-w-xs mx-auto">
@@ -138,7 +129,6 @@ const Index = () => {
         )}
       </section>
       
-      {/* Projects Section */}
       <section id="our-projects" className="py-24 px-4">
         <div className="monolit-container">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gradient">Featured Projects</h2>
@@ -166,13 +156,12 @@ const Index = () => {
         </div>
       </section>
       
-      {/* About Section */}
       <section id="about" className="py-24 px-4">
         <div className="monolit-container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient">The Future of Visual Storytelling</h2>
             <p className="text-lg mb-8 text-monolit-mist">
-              MONOLİT medya stands at the intersection of cutting-edge AI technology and artistic vision. 
+              MONOLIT stands at the intersection of cutting-edge AI technology and artistic vision. 
               We create immersive visual experiences that transcend traditional boundaries, 
               bringing futuristic concepts into today's reality.
             </p>
@@ -190,11 +179,25 @@ const Index = () => {
                 <p className="text-sm opacity-80">Pushing boundaries to define tomorrow's visual language today</p>
               </div>
             </div>
+            
+            <div className="flex justify-center space-x-6 mt-12">
+              <a href="https://instagram.com" className="text-monolit-mist hover:text-monolit-neon-orange transition-colors duration-300">
+                <Instagram size={24} />
+              </a>
+              <a href="https://twitter.com" className="text-monolit-mist hover:text-monolit-neon-orange transition-colors duration-300">
+                <Twitter size={24} />
+              </a>
+              <a href="https://linkedin.com" className="text-monolit-mist hover:text-monolit-neon-orange transition-colors duration-300">
+                <Linkedin size={24} />
+              </a>
+              <a href="https://facebook.com" className="text-monolit-mist hover:text-monolit-neon-orange transition-colors duration-300">
+                <Facebook size={24} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
       
-      {/* Contact Section */}
       <section id="contact" className="py-24 px-4 bg-monolit-blue-medium/20">
         <div className="monolit-container">
           <div className="max-w-3xl mx-auto text-center">

@@ -28,9 +28,9 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="monolit-container flex items-center justify-end md:justify-center">
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation with updated order */}
         <nav className="hidden md:flex space-x-8">
-          {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+          {['Home', 'Projects', 'About', 'Contact'].map((item) => (
             <a 
               key={item} 
               href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}
@@ -51,10 +51,10 @@ const Header: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu with updated order */}
       {menuOpen && (
         <div className="fixed inset-0 bg-monolit-blue-dark/95 z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
-          {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+          {['Home', 'Projects', 'About', 'Contact'].map((item) => (
             <a 
               key={item} 
               href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}

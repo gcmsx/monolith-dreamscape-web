@@ -7,12 +7,12 @@ const Footer: React.FC = () => {
       <div className="monolit-container">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
           <div className="text-center md:text-left">
-            <h2 className="text-xl font-bold mb-1">MONOLİT</h2>
-            <p className="text-xs opacity-70">medya</p>
+            <h2 className="text-xl font-bold mb-1">MONOLIT</h2>
+            <p className="text-xs opacity-70">exploring the boundaries of imagination</p>
           </div>
           
           <div className="flex space-x-8">
-            {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+            {['Home', 'Projects', 'About', 'Contact'].map((item) => (
               <a 
                 key={item} 
                 href={`#${item.toLowerCase()}`} 
@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="text-xs opacity-50">
-            © {new Date().getFullYear()} MONOLİT medya. All rights reserved.
+            © {new Date().getFullYear()} MONOLIT. All rights reserved.
           </div>
         </div>
       </div>
