@@ -20,7 +20,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({
   
   return (
     <div 
-      className={`relative ${isMobile ? 'h-[60vh] w-full' : 'h-screen w-[20%]'} group overflow-hidden`}
+      className={`relative ${isMobile ? 'h-screen w-full' : 'h-screen w-[20%]'} group overflow-hidden`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -32,14 +32,10 @@ const VideoSection: React.FC<VideoSectionProps> = ({
           transform: hovered ? 'scale(1.05)' : 'scale(1)'
         }}
       >
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-monolit-blue-dark/90"></div>
+
       </div>
 
-      {/* Vertical divider line (only on desktop) */}
-      {!isMobile && index < 5 && (
-        <div className="absolute top-0 right-0 vertical-divider h-full z-10"></div>
-      )}
+
 
       {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 z-20 transform transition-all duration-500 translate-y-0 group-hover:translate-y-[-10px]">
