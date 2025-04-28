@@ -1,54 +1,61 @@
-
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import VideoSection from '../components/VideoSection';
 import ParallaxBackground from '../components/ParallaxBackground';
 import Footer from '../components/Footer';
 import { useToast } from "@/components/ui/use-toast";
+import { useIsMobile } from '@/hooks/use-mobile';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Index = () => {
   const { toast } = useToast();
+  const isMobile = useIsMobile();
 
-  // Sample data for the video sections
+  // Sample data for the video sections with animated GIFs
   const sections = [
     {
       title: "AI-Generated Films",
       description: "Cutting-edge artificial intelligence creating cinematic masterpieces.",
-      backgroundImage: "https://images.unsplash.com/photo-1485163819542-13adeb5e0068?q=80&w=1800&auto=format",
+      backgroundImage: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtY2JyMnBoc3k4NnB1OHgybTF1bGhiam8ybjU1Z2tzMWVvNHFobiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btXJQm5DD8ApubC/giphy.gif",
     },
     {
       title: "Space Landscapes",
       description: "Mystical cosmic environments beyond human imagination.",
-      backgroundImage: "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=1800&auto=format",
+      backgroundImage: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHdiY3R2cWI5M2dtcXBxZDAwbmx1ZHB1bGY4NnJxdWN0ZXd1NXJ6ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT8qBvOmIEWXxVPdxS/giphy.gif",
     },
     {
       title: "Futuristic Advertising",
       description: "Revolutionary visual concepts for next-generation brands.",
-      backgroundImage: "https://images.unsplash.com/photo-1558025706-7978322555d0?q=80&w=1800&auto=format",
+      backgroundImage: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWdyeWJkbzFrc2k0ZXRyYW96eXQya3J5YnB6dXpyNGFvNzBzMmp6dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btNa0RUYa5E7iiQ/giphy.gif",
     },
     {
       title: "Cyberpunk Worlds",
       description: "High-tech dystopian environments with striking neon aesthetics.",
-      backgroundImage: "https://images.unsplash.com/photo-1531279550271-23c2a77a765c?q=80&w=1800&auto=format",
+      backgroundImage: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHF1NXV2ZGx6Y2JlOWE3ZXRrY2h3dW42cWc2OWVyYXkwZDl5NXB6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btSHUTdwRVRBy0w/giphy.gif",
     },
     {
       title: "Cosmic Effects",
       description: "Dreamlike visual elements from the depths of the universe.",
-      backgroundImage: "https://images.unsplash.com/photo-1534841090574-cba2d662b62e?q=80&w=1800&auto=format",
+      backgroundImage: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExem41enIyaGQ4ZmV6YmFyMHZwbDY5ZWQ1amRiMnlsZHBnbXZoZjBkayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0IyeL8r9UhJI5LcA/giphy.gif",
     },
     {
       title: "Artistic Vision",
       description: "Where technology meets artistic expression in perfect harmony.",
-      backgroundImage: "https://images.unsplash.com/photo-1470470558828-e00ad9dbbc13?q=80&w=1800&auto=format",
+      backgroundImage: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWJ6ZjR1MnN0b2dlYW9zYnlnZWQxbzQzam5mMDAxamw2d3Y3MnA4dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26DN0U3SqKDG2fTFe/giphy.gif",
     }
   ];
 
   useEffect(() => {
-    // Welcome toast that appears once the page loads
     setTimeout(() => {
       toast({
-        title: "Welcome to MONOLİT medya",
-        description: "Explore the future of AI-driven cinematography and advertising",
+        title: "Welcome to MONOLİT",
+        description: "Explore the future of AI-driven cinematography",
         duration: 5000,
       });
     }, 1500);
@@ -63,7 +70,7 @@ const Index = () => {
       <section className="h-screen flex items-center justify-center">
         <div className="text-center px-4 animate-fade-in">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-wider">
-            MONOLİT <span className="opacity-70 text-xl md:text-2xl lg:text-3xl">medya</span>
+            MONOLİT
           </h1>
           <p className="text-lg md:text-xl max-w-md mx-auto text-monolit-mist">
             AI-driven film and advertising agency
@@ -80,19 +87,37 @@ const Index = () => {
       </section>
       
       {/* Video Sections */}
-      <section 
-        id="projects" 
-        className="flex flex-wrap"
-      >
-        {sections.map((section, index) => (
-          <VideoSection
-            key={index}
-            title={section.title}
-            description={section.description}
-            backgroundImage={section.backgroundImage}
-            index={index}
-          />
-        ))}
+      <section id="projects" className="py-24">
+        {isMobile ? (
+          <Carousel className="w-full max-w-xs mx-auto">
+            <CarouselContent>
+              {sections.map((section, index) => (
+                <CarouselItem key={index} className="pl-0">
+                  <VideoSection
+                    title={section.title}
+                    description={section.description}
+                    backgroundImage={section.backgroundImage}
+                    index={index}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        ) : (
+          <div className="flex flex-wrap">
+            {sections.map((section, index) => (
+              <VideoSection
+                key={index}
+                title={section.title}
+                description={section.description}
+                backgroundImage={section.backgroundImage}
+                index={index}
+              />
+            ))}
+          </div>
+        )}
       </section>
       
       {/* About Section */}

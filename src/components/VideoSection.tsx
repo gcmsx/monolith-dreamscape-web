@@ -1,10 +1,11 @@
 
 import React, { useState } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface VideoSectionProps {
   title: string;
   description: string;
-  backgroundImage: string; // Will be used instead of video for now
+  backgroundImage: string;
   index: number;
 }
 
@@ -15,14 +16,15 @@ const VideoSection: React.FC<VideoSectionProps> = ({
   index
 }) => {
   const [hovered, setHovered] = useState(false);
+  const isMobile = useIsMobile();
   
   return (
     <div 
-      className="relative h-screen w-full sm:w-1/2 lg:w-1/3 xl:w-1/6 group overflow-hidden"
+      className={`relative ${isMobile ? 'h-[60vh] w-full' : 'h-screen w-full sm:w-1/2 lg:w-1/3'} group overflow-hidden`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Background Image (placeholder for video) */}
+      {/* Background Image/GIF */}
       <div 
         className="absolute inset-0 bg-cover bg-center transition-all duration-700"
         style={{ 
@@ -34,8 +36,8 @@ const VideoSection: React.FC<VideoSectionProps> = ({
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-monolit-blue-dark/90"></div>
       </div>
 
-      {/* Vertical divider line */}
-      {index < 5 && (
+      {/* Vertical divider line (only on desktop) */}
+      {!isMobile && index < 5 && (
         <div className="absolute top-0 right-0 vertical-divider h-full z-10"></div>
       )}
 
