@@ -1,10 +1,16 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose
+} from "@/components/ui/sheet";
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +35,8 @@ const Header: React.FC = () => {
         scrolled ? 'bg-monolit-blue-dark/90 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
-      <div className="monolit-container flex items-center justify-end md:justify-center">
+      <div className="monolit-container flex items-center justify-between md:justify-center">
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
           {navigationItems.map((item) => (
             <a 
@@ -43,34 +50,41 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
-        <button 
-          className="md:hidden text-white p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X /> : <Menu />}
-        </button>
-      </div>
-
-      {menuOpen && (
-        <div className="fixed inset-0 bg-monolit-blue-dark/95 z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
-          {navigationItems.map((item) => (
-            <a 
-              key={item} 
-              href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}
-              onClick={(e) => {
-                if (item === 'Home') {
-                  e.preventDefault();
-                  scrollToTop();
-                }
-                setMenuOpen(false);
-              }}
-              className="text-xl uppercase tracking-wider hover:text-monolit-neon-orange transition-colors"
-            >
-              {item}
-            </a>
-          ))}
+        {/* Mobile Navigation Trigger */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <button className="text-white p-2">
+                <Menu />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="left" className="bg-monolit-blue-dark/95 border-l-0 text-white w-[250px] sm:w-[300px]">
+              <SheetHeader className="text-left mb-8">
+                <SheetTitle className="text-2xl font-bold text-monolit-neon-orange">MENU</SheetTitle>
+              </SheetHeader>
+              <nav className="flex flex-col space-y-6">
+                {navigationItems.map((item) => (
+                  <SheetClose asChild key={item}>
+                    <a 
+                      href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}
+                      onClick={(e) => {
+                        if (item === 'Home') {
+                          e.preventDefault();
+                          scrollToTop();
+                        }
+                        // SheetClose handles closing
+                      }}
+                      className="text-xl uppercase tracking-wider hover:text-monolit-neon-orange transition-colors"
+                    >
+                      {item}
+                    </a>
+                  </SheetClose>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
-      )}
+      </div>
     </header>
   );
 };
