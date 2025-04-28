@@ -91,15 +91,7 @@ const Index = () => {
     };
   }, [isMobile, api, scrollNext]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      toast({
-        title: "Welcome to MONOLIT",
-        description: "Explore the future of AI-driven cinematography",
-        duration: 5000,
-      });
-    }, 1500);
-  }, [toast]);
+
 
   return (
     <div className="min-h-screen">
